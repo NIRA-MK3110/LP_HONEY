@@ -1,0 +1,32 @@
+@use "../abstracts/colors" as abstracts;
+@use "../abstracts/media-query" as *;
+
+.description {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    color: abstracts.$color_19;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    letter-spacing: 1.1px;
+    text-shadow: 0.5px 0.5px 1px rgba(255, 255, 255, 0.3);
+}
+// タブレット向けのスタイル
+@include mq("tb") {
+    .description {
+        font-size: 0.9em;
+    }
+  }
+
+  // スマートフォン向けのスタイル
+  @include mq("sp") {
+    .description {
+        font-size: 0.8em;
+    }
+  }
+
+  // 大画面向けのスタイル
+  @include mq("big") {
+    .description {
+        font-size: 1.2em;
+    }
+  }

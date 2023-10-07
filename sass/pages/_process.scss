@@ -1,0 +1,158 @@
+@use "../abstracts/colors" as abstracts;
+@use "../abstracts/media-query" as *;
+.process {
+    background-color: abstracts.$color_7;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    letter-spacing: 1.5px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    &__step {
+        display: flex;
+        margin: 0 auto 40px auto;
+
+        &--left,
+        &--right {
+            img {
+                transition: transform 0.3s ease;
+                flex: 1;
+                margin-right: 20px;
+                box-sizing: border-box;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                will-change: transform, box-shadow;
+                border-radius: 5px;
+                transform: translateY(0);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+                &:hover, &:focus {
+                  transform: translateY(-5px);
+                  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+                }
+            }
+
+            .process__description-wrapper {
+                padding: 0 20px;
+            }
+        }
+
+        &--left {
+            flex-direction: row-reverse;
+        }
+    }
+  }
+// スマートフォン向けのスタイル
+@include mq("sp") {
+  .process {
+      padding: 20px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &__step {
+          flex-direction: column;
+          margin: 0 auto 20px auto;
+          align-items: center;
+
+          &--left,
+          &--right {
+              img {
+                  margin-right: 0;
+                  margin-bottom: 10px;
+                  display: block;
+              }
+              .process__description-wrapper {
+                  text-align: center;
+              }
+          }
+
+          &--left .process__description-wrapper,
+          &--right .process__description-wrapper {
+              padding: 0;
+          }
+      }
+
+      &__leaf {
+          &--start, &--end {
+              img {
+                  width: 100%;
+              }
+          }
+      }
+  }
+}
+
+// タブレット向けのスタイル
+@include mq("tb") {
+  .process {
+      padding: 30px 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      &__step {
+          flex-direction: column;
+          margin: 0 auto 20px auto;
+          align-items: center;
+
+          &--left,
+          &--right {
+              img {
+                  margin-right: 0;
+                  margin-bottom: 10px;
+                  display: block;
+              }
+              .process__description-wrapper {
+                  text-align: center;
+              }
+          }
+
+          &--left .process__description-wrapper,
+          &--right .process__description-wrapper {
+              padding: 0;
+          }
+      }
+  }
+}
+
+
+// pc向けのスタイル
+@include mq("pc") {
+    .process {
+        padding: 40px 20px;
+
+        &__step {
+            &--left,
+            &--right {
+                img {
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+}
+// 大型pc向けのスタイル
+@include mq("big") {
+    .process {
+        max-width: 1440px;
+        padding: 50px 40px;
+
+        &__step {
+            &--left,
+            &--right {
+                img {
+                    margin-right: 30px;
+                }
+            }
+        }
+    }
+}

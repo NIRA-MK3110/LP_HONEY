@@ -1,0 +1,89 @@
+@use "../abstracts/colors" as abstracts;
+@use "../abstracts/media-query" as *;
+.support {
+  background-color: abstracts.$color_7;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  &__info {
+    background-color: abstracts.$color_20;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    &-title {
+      color: abstracts.$color_10;
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    &-details {
+      list-style-type: none;
+      padding: 0;
+
+      &-item {
+        color: abstracts.$color_19;
+        margin-bottom: 10px;
+
+        &-title {
+          font-weight: bold;
+        }
+
+        &-text {
+          color: abstracts.$color_19;
+        }
+
+        &-link {
+          color: abstracts.$color_2;
+          transition: color 0.3s;
+
+          &:hover {
+            color: abstracts.$color_10;
+          }
+        }
+      }
+    }
+  }
+   // タブレット向けのスタイル
+   @include mq("tb") {
+    padding: 30px 15px;
+
+    &__info {
+      padding: 15px;
+
+      &-title {
+        font-size: 1.3em;
+      }
+    }
+  }
+
+  // スマートフォン向けのスタイル
+  @include mq("sp") {
+    padding: 20px 10px;
+
+    &__info {
+      padding: 10px;
+
+      &-title {
+        font-size: 1.2em;
+      }
+    }
+  }
+
+  // 大画面向けのスタイル
+  @include mq("big") {
+    padding: 50px 25px;
+
+    &__info {
+      padding: 25px;
+
+      &-title {
+        font-size: 1.7em;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,24 @@
+@use "../abstracts/colors" as abstracts;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fbfdff;
+    color: #2f2725;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+}
+li {
+    list-style: none;
+}

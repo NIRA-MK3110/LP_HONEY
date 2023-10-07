@@ -1,0 +1,60 @@
+@use "../abstracts/colors" as abstracts;
+@use "../abstracts/media-query" as *;
+.leaf {
+    &__img {
+      position: absolute;
+      z-index: 1;
+      height: auto;
+      display: block;
+      width: 200px;
+      height: 150px;
+
+      &--start {
+        top: 0;
+        left: 0;
+      }
+
+      &--end {
+        bottom: 0;
+        right: 0;
+      }
+    }
+  }
+// タブレット向けのスタイル
+@include mq("tb") {
+    .leaf {
+        &__img {
+            width: 150px;
+            height: 100px;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}
+
+// スマートフォン向けのスタイル
+@include mq("sp") {
+    .leaf {
+        &__img {
+            width: 100px;
+            height: 50px;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}
+
+// 大画面向けのスタイル
+@include mq("big") {
+    .leaf {
+        &__img {
+            width: 388px;
+            height: 292px;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}

@@ -1,0 +1,129 @@
+@use "../abstracts/colors" as abstracts;
+@use "../abstracts/media-query" as *;
+.footer {
+    width: 100%;
+    background-color: abstracts.$color_7;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    &__leaf {
+        margin-bottom: 20px;
+        height: auto;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    &__content {
+        margin: 0 auto;
+        padding: 10px 20px;
+        width: 100%;
+        background: {
+            image: url('/img/footer-end.png');
+            repeat: repeat;
+            size: cover;
+        }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        &__info {
+            margin-bottom: 20px;
+            margin-top: 200px;
+            width: 100%;
+
+            &__title {
+                font-size: 1.5em;
+                color: abstracts.$color_2;
+                margin-bottom: 10px;
+            }
+
+            &__address {
+                color: abstracts.$color_4;
+            }
+        }
+
+        &__text {
+            color: abstracts.$color_19;
+            font-size: 0.9em;
+        }
+    }
+}
+
+// スマートフォン
+@include mq("sp") {
+    .footer {
+        &__leaf {
+            margin-bottom: 15px;
+        }
+
+        &__content {
+            padding: 8px 16px;
+
+            &__info {
+                margin-top: 180px;
+                &__title {
+                    font-size: 1.2em;
+                    margin-bottom: 8px;
+                }
+            }
+
+            &__text {
+                font-size: 0.8em;
+            }
+        }
+    }
+}
+
+// タブレット
+@include mq("tb") {
+    .footer {
+        &__leaf {
+            margin-bottom: 18px;
+        }
+
+        &__content {
+            padding: 9px 18px;
+
+            &__info {
+                margin-top: 190px;
+                &__title {
+                    font-size: 1.4em;
+                    margin-bottom: 9px;
+                }
+            }
+
+            &__text {
+                font-size: 0.85em;
+            }
+        }
+    }
+}
+
+// PC
+@include mq("pc") {
+    .footer {
+        &__content {
+            &__info {
+                margin-top: 210px;
+            }
+        }
+    }
+}
+
+// 大型モニター
+@include mq("big") {
+    .footer {
+        &__content {
+            &__info {
+                margin-top: 230px;
+            }
+        }
+    }
+}

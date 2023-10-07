@@ -1,0 +1,107 @@
+@use "../abstracts/colors" as abstracts;
+@use "../abstracts/media-query" as *;
+.faq {
+    background-color: abstracts.$color_7;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    letter-spacing: 1.5px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    .faq__item {
+      width: 100%;
+      margin-top: 20px;
+      border: 1px solid abstracts.$color_21;
+
+      .faq__item-question {
+        font-weight: bold;
+        color: abstracts.$color_19;
+        cursor: pointer;
+        padding: 10px 20px;
+        background-color: abstracts.$color_20;
+        position: relative;
+
+        &::after {
+          content: "+";
+          position: absolute;
+          right: 20px;
+          transition: transform 0.3s;
+        }
+
+        &:hover {
+          background-color: abstracts.$color_3;
+        }
+
+        &[open]::after {
+          transform: rotate(45deg);
+        }
+      }
+
+      .faq__item-answer {
+        padding: 10px 20px;
+        background-color: abstracts.$color_6;
+        border-top: 1px solid abstracts.$color_21;
+        color: abstracts.$color_19;
+      }
+    }
+  }
+// タブレット向けのスタイル
+@include mq("tb") {
+    .faq {
+        padding: 30px 15px;
+
+        .faq__item {
+            margin-top: 15px;
+            .faq__item-question {
+                padding: 8px 15px;
+            }
+            .faq__item-answer {
+                padding: 8px 15px;
+            }
+        }
+    }
+}
+
+// スマートフォン向けのスタイル
+@include mq("sp") {
+    .faq {
+        padding: 20px 10px;
+
+        .faq__item {
+            .faq__item-question {
+                font-size: 0.9em;
+                padding: 7px 10px;
+            }
+            .faq__item-answer {
+                font-size: 0.85em;
+                padding: 7px 10px;
+            }
+        }
+    }
+}
+
+// 大画面向けのスタイル
+@include mq("big") {
+    .faq {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 50px 30px;
+
+        .faq__item {
+            margin-top: 25px;
+            .faq__item-question {
+                font-size: 1.1em;
+                padding: 12px 25px;
+            }
+            .faq__item-answer {
+                font-size: 1.05em;
+                padding: 12px 25px;
+            }
+        }
+    }
+}

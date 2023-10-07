@@ -1,0 +1,158 @@
+@use "../abstracts/colors" as abstracts;
+@use "../abstracts/media-query" as *;
+.eat {
+  background-color: abstracts.$color_20;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  letter-spacing: 1.5px;
+  margin-bottom: 30px;
+
+  &__methods {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__method {
+    flex: 1;
+    margin-right: 20px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform, box-shadow;
+    transform: translateY(0);
+
+    &:hover, &:focus {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:nth-child(1) {
+      margin-top: 225px;
+    }
+
+    &:nth-child(2) {
+      margin-top: 150px;
+    }
+
+    &:nth-child(3) {
+      margin-top: 75px;
+    }
+
+    &__img {
+      width: 100%;
+      display: block;
+      margin-bottom: 15px;
+    }
+  }
+}
+// タブレット向けのスタイル
+@include mq("tb") {
+  .eat {
+    padding: 30px 15px;
+
+    &__methods {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__method {
+      margin-right: 0;
+      margin-bottom: 20px;
+      width: 80%;
+      display: flex;
+
+      &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+        margin-top: 20px;
+      }
+
+      &__img {
+        flex-shrink: 0;
+        margin-right: 25px;
+      }
+
+      .text-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+
+        .subtitle, .description {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+// スマートフォン向けのスタイル
+@include mq("sp") {
+  .eat {
+    padding: 20px 10px;
+
+    &__methods {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__method {
+      margin-right: 0;
+      margin-bottom: 15px;
+      width: 90%;
+      display: block; // flexをblockに変更して縦並びに
+
+      &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+        margin-top: 15px;
+      }
+
+      &__img {
+        display: block; // 画像もブロック要素として表示
+        margin: 0 auto 15px; // 画像を中央寄せに
+        width: 100%; // 画像の幅を最大に
+      }
+
+      .text-content {
+        display: block; // テキストコンテンツもブロック要素として表示
+        padding: 15px;
+
+        .subtitle, .description {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+// 大画面向けのスタイル
+@include mq("big") {
+  .eat {
+    max-width: 1440px;
+    padding: 50px 30px;
+
+    &__method {
+      &:nth-child(1) {
+        margin-top: 250px;
+      }
+
+      &:nth-child(2) {
+        margin-top: 175px;
+      }
+
+      &:nth-child(3) {
+        margin-top: 100px;
+      }
+    }
+  }
+}

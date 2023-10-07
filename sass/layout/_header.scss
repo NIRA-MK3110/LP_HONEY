@@ -1,0 +1,114 @@
+@use "../abstracts/colors" as abstracts;
+@use "../abstracts/media-query" as *;
+.header {
+    width: 100%;
+    background-color: abstracts.$color_20;
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__main-visual {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+
+        &-images {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        &-image {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            height: 100vh;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+
+            &:first-child {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__text {
+        margin-top: 20px;
+        img {
+            filter: drop-shadow(2px 2px 2px abstracts.$color_21); // 灰色の影を追加
+        }
+    }
+}
+// タブレット向けのスタイル
+    @include mq("tb") {
+        .header {
+            &__content {
+                justify-content: center;
+            }
+
+            &__main-visual {
+                height: 80vh;
+
+                &-image {
+                    height: 80vh;
+                }
+            }
+
+            &__text-image, &__border-image {
+                display: block;
+                margin: 0 auto;
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    }
+
+    // スマートフォン向けのスタイル
+    @include mq("sp") {
+        .header {
+            &__content {
+                justify-content: center;
+            }
+
+            &__main-visual {
+                height: 60vh;
+
+                &-image {
+                    height: 60vh;
+                }
+            }
+            &__text-image, &__border-image {
+                display: block;
+                margin: 0 auto;
+                max-width: 100%; // 画像が親要素の幅を超えないように
+                height: auto; // アスペクト比を維持
+            }
+        }
+    }
+
+
+// 大画面向けのスタイル
+@include mq("big") {
+    .header {
+        &__main-visual {
+            height: 120vh;
+
+            &-image {
+                height: 120vh;
+            }
+        }
+
+        &__text {
+            img {
+                max-width: 110%;
+            }
+        }
+    }
+}

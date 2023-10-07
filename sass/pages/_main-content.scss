@@ -1,0 +1,35 @@
+@use "../abstracts/colors" as abstracts;
+@use "../abstracts/media-query" as *;
+.main-content {
+    background-color: abstracts.$color_20;
+    color: abstracts.$color_19;
+    margin: 0 auto;
+    padding: 60px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1140px;
+}
+// タブレット向けのスタイル
+@include mq("tb") {
+    .main-content {
+        padding: 50px 15px;
+        max-width: 940px;
+    }
+}
+
+// スマートフォン向けのスタイル
+@include mq("sp") {
+    .main-content {
+        padding: 40px 10px;
+        max-width: 460px;
+    }
+}
+
+// 大画面向けのスタイル
+@include mq("big") {
+    .main-content {
+        padding: 70px 25px;
+        max-width: 1400px;
+    }
+}
